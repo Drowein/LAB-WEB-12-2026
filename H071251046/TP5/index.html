@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TeamTask - Manajemen Tugas Tim</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="script.js" defer></script>
+</head>
+<body class="min-h-screen bg-slate-100 text-slate-800">
+  <div class="min-h-screen">
+    <header class="border-b border-slate-200 bg-white">
+      <div class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 sm:px-8">
+        <div class="flex items-center gap-3">
+          <div class="flex h-11 w-11 items-center justify-center rounded-2xl bg-indigo-600 text-xl font-bold text-white">T</div>
+          <div>
+            <p class="text-lg font-bold tracking-tight text-slate-900">TeamTask</p>
+            <p class="text-xs text-slate-500">Manajemen tugas anggota tim</p>
+          </div>
+        </div>
+        <div class="hidden items-center gap-2 rounded-full bg-emerald-50 px-3 py-2 text-xs font-medium text-emerald-700 sm:flex">
+          <span class="h-2 w-2 rounded-full bg-emerald-500"></span>
+          Data contoh dari JSONPlaceholder
+        </div>
+      </div>
+    </header>
+
+    <main class="mx-auto max-w-7xl px-5 py-8 sm:px-8">
+      <section class="mb-7">
+        <p class="mb-2 text-sm font-semibold uppercase tracking-wider text-indigo-600">Dashboard tim</p>
+        <h1 class="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">Pantau pekerjaan, tanpa tenggelam di chat.</h1>
+        <p class="mt-2 max-w-2xl text-sm leading-6 text-slate-500">Pilih anggota untuk melihat daftar tugas, memantau progres, mencari pekerjaan, dan mengelola tugas langsung dari halaman ini.</p>
+      </section>
+
+      <div class="grid gap-6 lg:grid-cols-[320px_minmax(0,1fr)]">
+        <!-- Panel anggota -->
+        <aside class="h-fit rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+          <div class="mb-4 flex items-center justify-between">
+            <div>
+              <h2 class="font-bold text-slate-900">Anggota tim</h2>
+              <p class="mt-1 text-xs text-slate-500">Pilih nama untuk melihat tugas</p>
+            </div>
+            <span id="memberCount" class="rounded-full bg-indigo-50 px-3 py-1 text-xs font-semibold text-indigo-700">0 anggota</span>
+          </div>
+
+          <p id="memberStatus" class="mb-3 rounded-lg bg-slate-50 px-3 py-2 text-sm text-slate-500" role="status" aria-live="polite">Memuat anggota....</p>
+          <div id="membersList" class="flex flex-col gap-2"></div>
+        </aside>
+
+        <!-- Panel tugas -->
+        <section class="min-w-0 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6">
+          <div class="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+            <div>
+              <p class="text-xs font-semibold uppercase tracking-wider text-indigo-600">Ruang kerja</p>
+              <h2 id="taskHeading" class="mt-1 text-xl font-bold text-slate-900 sm:text-2xl">Pilih anggota tim</h2>
+              <p id="taskSubheading" class="mt-1 text-sm text-slate-500">Daftar tugas anggota akan muncul di sini.</p>
+            </div>
+            <span id="taskTotalBadge" class="hidden w-fit rounded-full bg-slate-100 px-3 py-1.5 text-xs font-semibold text-slate-600">0 tugas</span>
+          </div>
+
+          <div>
+            <div class="mb-3">
+              <h3 class="font-bold text-slate-900">Tambah tugas baru</h3>
+              <p class="mt-1 text-xs text-slate-500">Judul tugas minimal terdiri dari 5 karakter.</p>
+            </div>
+            <form id="addTaskForm" class="flex flex-col gap-3 sm:flex-row">
+              <div class="min-w-0 flex-1">
+                <label for="taskInput" class="sr-only">Judul tugas baru</label>
+                <input id="taskInput" type="text" placeholder="Contoh: Menyusun laporan mingguan" disabled
+                  class="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm outline-none transition placeholder:text-slate-400 focus:border-indigo-400 focus:ring-4 focus:ring-indigo-50 disabled:cursor-not-allowed disabled:bg-slate-50">
+              </div>
+              <button id="addTaskButton" type="submit" disabled
+                class="rounded-xl bg-indigo-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-indigo-700 focus:outline-none focus:ring-4 focus:ring-indigo-100 disabled:cursor-not-allowed disabled:bg-slate-300">
+                Simpan
+              </button>
+            </form>
+            <p id="formMessage" class="mt-2 hidden text-sm text-rose-600" role="alert"></p>
+            <p id="notification" class="mt-3 hidden rounded-lg bg-emerald-50 px-3 py-2 text-sm font-medium text-emerald-700" role="status" aria-live="polite"></p>
+          </div>
+          
+          <div id="progressCard" class="mt-6 hidden rounded-xl border border-slate-200 bg-slate-50 p-4">
+            <div class="mb-2 flex items-center justify-between gap-3">
+              <p class="text-sm font-semibold text-slate-700">Progres penyelesaian</p>
+              <p id="progressText" class="text-sm font-bold text-indigo-700">0 dari 0 tugas selesai</p>
+            </div>
+            <div class="h-2.5 overflow-hidden rounded-full bg-slate-200">
+              <div id="progressBar" class="h-full rounded-full bg-indigo-600 transition-all duration-300" style="width: 0%"></div>
+            </div>
+          </div>
+
+          <div class="mt-6 flex flex-col gap-3 sm:flex-row">
+            <div class="relative min-w-0 flex-1">
+              <label for="searchInput" class="sr-only">Cari tugas</label>
+              <span class="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">⌕</span>
+              <input id="searchInput" type="search" placeholder="Cari tugas berdasarkan judul..." disabled
+                class="w-full rounded-xl border border-slate-200 bg-white py-3 pl-9 pr-4 text-sm outline-none transition placeholder:text-slate-400 focus:border-indigo-400 focus:ring-4 focus:ring-indigo-50 disabled:cursor-not-allowed disabled:bg-slate-50">
+            </div>
+          </div>
+
+          <p id="taskStatus" class="mt-4 hidden rounded-lg px-3 py-2 text-sm" role="status" aria-live="polite"></p>
+          <p id="noMatch" class="mt-4 hidden rounded-lg bg-amber-50 px-3 py-3 text-sm text-amber-700">Tidak ada tugas yang cocok.</p>
+          <p id="emptyTaskState" class="mt-4 hidden rounded-lg bg-slate-50 px-3 py-4 text-center text-sm text-slate-500">Belum ada tugas untuk ditampilkan.</p>
+          <ul id="taskList" class="mt-4 flex flex-col gap-3"></ul>
+
+          <div class="my-7 border-t border-slate-200"></div>
+
+        </section>
+      </div>
+
+      <footer class="mt-7 text-center text-xs text-slate-400">
+        Praktikum Web Bab 5 · JavaScript DOM dan Asynchronous
+      </footer>
+    </main>
+  </div>
+</body>
+</html>
