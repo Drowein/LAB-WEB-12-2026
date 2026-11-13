@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Website informasi wisata Pantai Losari, Makassar">
+  <title>Wisata Pantai Losari</title>
+</head>
+<body>
+
+<header>
+  <h1>Pantai Losari</h1>
+  <p>Wisata Pantai di Kota Makassar, Sulawesi Selatan</p>
+</header>
+
+<nav>
+  <a href="#info">Info</a> |
+  <a href="#galeri">Galeri</a> |
+  <a href="#aktivitas">Aktivitas</a> |
+  <a href="#lokasi">Lokasi</a> |
+  <a href="#tabel">Info Tiket</a> |
+  <a href="#form">Formulir</a> |
+  <a href="#multimedia">Video</a>
+</nav>
+
+<hr>
+
+<main>
+  <section id="info">
+    <h2>Informasi Utama</h2>
+    <article>
+      <p>
+        Pantai Losari adalah pantai yang terletak di pusat Kota Makassar dan menjadi
+        salah satu destinasi wisata terkenal di Sulawesi Selatan. Tempat ini populer
+        untuk menikmati matahari terbenam, <em>pisang epe</em>, dan suasana kota
+        di tepi laut.
+      </p>
+    </article>
+  </section>
+
+  <section id="galeri">
+    <h2>Galeri Foto</h2>
+
+    <figure>
+      <img src="gambar/losariSore.jpeg" width="250">
+      <figcaption>Suasana Pantai Losari di sore hari</figcaption>
+    </figure>
+
+    <figure>
+      <img src="gambar/losariMalam.jpg" width="250">
+      <figcaption>Suasana Pantai Losari di malam hari</figcaption>
+    </figure>
+
+    <figure>
+      <img src="gambar/anjunganLosari.jpeg" width="250">
+      <figcaption>Anjungan di Pantai Losari</figcaption>
+    </figure>
+  </section>
+
+  <section id="aktivitas">
+    <h2>Daftar Aktivitas</h2>
+    <ul>
+      <li>Menikmati sunset di tepi pantai</li>
+      <li>Mencicipi pisang epe dan seafood</li>
+      <li>Berjalan santai di anjungan pantai</li>
+      <li>Berfoto di tulisan &quot;Pantai Losari&quot;</li>
+      <li>Mengunjungi Masjid Terapung Amirul Mukminin</li>
+    </ul>
+  </section>
+
+  <section id="lokasi">
+    <h2>Informasi Lokasi</h2>
+    <p>Jl. Penghibur, Losari, Kec. Ujung Pandang, Kota Makassar, Sulawesi Selatan.</p>
+    <iframe
+      src="https://www.google.com/maps?q=Pantai%20Losari%20Makassar&output=embed"
+      width="100%" height="500" title="Peta Lokasi Pantai Losari" allowfullscreen>
+    </iframe>
+  </section>
+
+  <section id="tabel">
+    <h2>Tabel Informasi</h2>
+    <table border="1">
+      <caption>Informasi Kunjungan Pantai Losari</caption>
+      <thead>
+        <tr>
+          <th scope="col">Keterangan</th>
+          <th scope="col">Detail</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Jam Operasional</td>
+          <td>24 Jam</td>
+        </tr>
+        <tr>
+          <td>Harga Tiket</td>
+          <td>Gratis</td>
+        </tr>
+        <tr>
+          <td>Fasilitas</td>
+          <td>Kuliner, parkir, tempat duduk</td>
+        </tr>
+        <tr>
+          <td>Waktu Terbaik</td>
+          <td>Sore hari</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="2">&copy; Info diperbarui tahun 2026</td>
+        </tr>
+      </tfoot>
+    </table>
+  </section>
+
+  <section id="form">
+    <h2>Formulir Kunjungan</h2>
+    <form>
+      <fieldset>
+        <legend>Data Diri</legend>
+
+        <label for="nama">Nama:</label><br>
+        <input type="text" id="nama" name="nama" placeholder="Nama lengkap" required><br><br>
+
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" placeholder="Alamat email" required><br><br>
+
+        <label for="telp">No. Telepon:</label><br>
+        <input type="tel" id="telp" name="telp" placeholder="08xxxxxxxxxx"><br><br>
+
+        <label for="tanggal">Tanggal Kunjungan:</label><br>
+        <input type="date" id="tanggal" name="tanggal"><br><br>
+
+        <label>Jumlah Pengunjung:</label><br>
+        <input type="number" name="jumlah" min="1" max="20"><br><br>
+
+        <label for="pesan">Pesan:</label><br>
+        <textarea id="pesan" name="pesan" rows="4" cols="30"></textarea><br><br>
+
+        <input type="checkbox" id="setuju" name="setuju">
+        <label for="setuju">Saya setuju dengan syarat kunjungan</label><br><br>
+
+        <input type="submit" value="Kirim">
+      </fieldset>
+    </form>
+  </section>
+
+  <section id="multimedia">
+    <h2>Multimedia</h2>
+    <iframe width="400" height="250"
+      src="https://www.youtube.com/embed/Lyn_nP-_qBY"
+      title="Video Pantai Losari" allowfullscreen>
+    </iframe>
+  </section>
+</main>
+<hr>
+<footer>
+  <p>&copy; 2026 Wisata Pantai Losari - Patricius Reinhard Danduru</p>
+</footer>
+</body>
+</html>

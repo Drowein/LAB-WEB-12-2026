@@ -1,0 +1,141 @@
+body {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-color: #F4EEF7;
+    color: #6F5A78
+}
+
+header {
+    text-align: center;
+    padding: 30px 20px;
+    background-color:#D8C4E3;
+    margin: 0 20px;
+    border-radius: 0 0 30px 30px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+h1,h2,h3 {
+    font-family: 'Bradley Hand', 'Segoe Print', cursive;
+    color: #654C73;
+}
+nav {
+    text-align: center;
+    padding: 15px;
+    background-color: #E8D8ED;
+    border-radius: 30px;
+    margin: 15px 20px;
+}
+
+nav a {
+    margin: 0 8px;
+    color: #765C82;
+}
+
+#tentang {
+    text-align: left;
+}
+
+.galeri {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.galeri figure{
+    background-color: #FFFAFD;
+    padding: 12px;
+    margin: 0;
+    border: 1px solid #E4D4E8;
+    border-radius: 18px;
+}
+
+.galeri figcaption{
+    color: #8F6480;
+    text-align: center;
+    padding: 8px 4px 4px;
+}
+
+.galeri img {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+caption {
+    color: #9b527d;
+    padding: 10px;
+}
+
+th {
+    background-color: #f3d9e9;
+    color: #8f4f79;
+    padding: 12px;
+    text-align: left;
+}
+
+td {
+    padding: 12px;
+    color: #6F5A78;
+    border-bottom: 1px solid #E8D8ED;
+}
+
+tfoot td {
+    background-color: #F8E8F1;
+    color: #9A6682;
+    text-align: center;
+    padding: 12px;
+}
+
+fieldset {
+    padding: 20px;
+    border: 1px solid #E4D4E8;
+    border-radius: 15px;
+    background-color: #FFFAFD;
+}
+
+label,
+legend {
+    color: #76516f;
+}   
+
+input, select, textarea {
+    padding: 7px;
+    border: 1px solid #d9c4df;
+    border-radius: 8px;
+}
+
+input[type="submit"], input[type="reset"] {
+    background-color: #C989A8;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 8px;
+}
+
+iframe{
+    max-width: 100%;
+}
+
+nav a:hover{
+    color: #C07196;
+}
+
+.bagian {
+    background-color: #FFF5FA;
+    margin: 20px;
+    padding: 25px;
+    border: 1px solid #E4D4E8;
+    border-radius: 50px;
+}
+
+@media (max-width: 600px){
+    .galeri{
+        flex-direction: column;
+    }
+    
+
+}
